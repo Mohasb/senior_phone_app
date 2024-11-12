@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import '../services/login_service.dart';
+import '../utils/app_localizations.dart';
 
 class LoginViewModel with ChangeNotifier {
   final emailController = TextEditingController();
@@ -20,7 +21,7 @@ class LoginViewModel with ChangeNotifier {
 
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Inicio de sesión exitoso")),
+          SnackBar(content: Text(AppLocalizations.of(context)!.translate('okLogin'))),
         );
 
         // Navegación a otra pantalla
@@ -51,19 +52,19 @@ class LoginViewModel with ChangeNotifier {
     return await loginService.getToken();
   }
 
-  String? validateEmail(String? value) {
+  String? validateEmail(String? value, BuildContext context) {
     if (value == null || value.isEmpty) {
-      return 'Por favor ingrese su email';
+      return AppLocalizations.of(context)!.translate('emptyEmail');
     }
     if (!RegExp(r'^[\w-]+@([\w-]+\.)+[\w-]{2,4}').hasMatch(value)) {
-      return 'Ingrese un email válido';
+      return AppLocalizations.of(context)!.translate('invalidEmail');
     }
     return null;
   }
 
-  String? validatePassword(String? value) {
+  String? validatePassword(String? value, BuildContext context) {
     if (value == null || value.isEmpty) {
-      return 'Por favor ingrese su contraseña';
+      return AppLocalizations.of(context)!.translate('emptyPassword');
     } else if (value.length < 6) {
       return 'La contraseña debe tener al menos 6 caracteres';
     }

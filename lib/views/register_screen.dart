@@ -5,8 +5,8 @@ import '../viewmodels/register_viewmodel.dart';
 
 class RegisterScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-
-  RegisterScreen({super.key});
+  final Function(String) onNavigate;
+  RegisterScreen({super.key, required this.onNavigate});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,7 @@ class RegisterScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
-                initialValue: "hola@gmail.com",
-                //controller: viewModel.emailController,
+                controller: viewModel.emailController,
                 decoration: const InputDecoration(labelText: 'Correo electrónico'),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
@@ -41,8 +40,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextFormField(
-                initialValue: "Hola1092!",
-                //controller: viewModel.passwordController,
+                controller: viewModel.passwordController,
                 decoration: const InputDecoration(labelText: 'Contraseña'),
                 obscureText: true,
                 validator: (value) {

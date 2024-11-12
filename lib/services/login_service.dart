@@ -30,6 +30,7 @@ class LoginService {
 
   Future<void> logout() async {
     // Elimina el token al cerrar sesión
+    // Falta llamar a backend para logout
     await secureStorage.delete(key: 'auth_token');
   }
 

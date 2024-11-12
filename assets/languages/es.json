@@ -1,0 +1,15 @@
+{
+    "app_title": "Senior Phone App",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "email":"Correo electrónico",
+    "password": "Contraseña",
+    "noAccount": "No tienes cuenta? Regístrate aquí",
+    "orOauth": "O inicia sesión con",
+    "okLogin":"Inicio de sesión exitoso",
+    "emptyEmail": "Por favor ingrese su email",
+    "invalidEmail": "Ingrese un email válido",
+    "emptyPassword": "Por favor ingrese su contraseña",
+    "invalidPassword": "La contraseña debe tener al menos 6 caracteres"
+
+}
